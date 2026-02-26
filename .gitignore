@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.pyc
+
+# VS Code
+.vscode/
+
+# JetBrains / IntelliJ / PyCharm
+.idea/
+
+# Mac / Windows noise
+.DS_Store
+Thumbs.db
