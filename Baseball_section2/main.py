@@ -1,11 +1,13 @@
 import db
 from datetime import date, datetime
+from pathlib import Path
 
 POSITIONS = ("C", "1B", "2B", "3B", "SS", "LF", "CF", "RF", "P")
 
 LINE_LEN = 64
 LINE = "=" * LINE_LEN
 DASH = "-" * LINE_LEN
+CSV_PATH = Path(__file__).with_name("players.csv")
 
 
 def get_days_until(game_dt):
@@ -203,7 +205,7 @@ def main():
     days_until = get_days_until(game_dt)
 
     # read CSV as dicts
-    players = db.read_players("players.csv")
+    players = db.read_players(CSV_PATH)
 
     while True:
         display_menu(current_date_str, game_date_str, days_until)
@@ -213,19 +215,19 @@ def main():
             display_lineup(players)
         elif option == "2":
             add_player(players)
-            db.write_players(players, "players.csv")
+            db.write_players(players, CSV_PATH)
         elif option == "3":
             remove_player(players)
-            db.write_players(players, "players.csv")
+            db.write_players(players, CSV_PATH)
         elif option == "4":
             move_player(players)
-            db.write_players(players, "players.csv")
+            db.write_players(players, CSV_PATH)
         elif option == "5":
             edit_position(players)
-            db.write_players(players, "players.csv")
+            db.write_players(players, CSV_PATH)
         elif option == "6":
             edit_stats(players)
-            db.write_players(players, "players.csv")
+            db.write_players(players, CSV_PATH)
         elif option == "7":
             print("Bye!")
             break
