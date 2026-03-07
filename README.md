@@ -1,3 +1,4 @@
+## Author Jasmine Youngharry
 # CPRO 2201 Midterm Project  
 ## Baseball Team Manager
 
